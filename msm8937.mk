@@ -35,6 +35,10 @@ PRODUCT_COPY_FILES += \
 # APEX
 PRODUCT_COMPRESSED_APEX := false
 
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Settings \
+    SystemUI
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -124,6 +128,8 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl:64 \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.4-service.clearkey
+    android.hardware.drm@1.3.vendor \
+    android.hardware.drm@1.4.vendor
 
 # FM
 PRODUCT_PACKAGES += \
@@ -138,6 +144,11 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1.vendor
+
+# Gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0 \
+    android.hardware.gatekeeper@1.0.vendor
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -195,6 +206,12 @@ PRODUCT_COPY_FILES += \
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service \
+    android.hardware.keymaster@3.0.vendor
 
 # Kernel
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
@@ -284,8 +301,10 @@ endif
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
-    vendor.qti.hardware.perf@2.0 \
-    vendor.qti.hardware.perf@2.0.vendor
+    android.hardware.power@1.2 \
+    android.hardware.power@1.2.vendor \
+    vendor.qti.hardware.perf@2.2 \
+    vendor.qti.hardware.perf@2.2.vendor
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -312,7 +331,15 @@ PRODUCT_COPY_FILES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.1.vendor \
+    android.hardware.radio@1.2.vendor \
+    android.hardware.radio@1.3.vendor \
+    android.hardware.radio@1.4.vendor \
+    android.hardware.radio@1.5.vendor \
     android.hardware.radio.config@1.0.vendor \
+    android.hardware.radio.config@1.1.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
     android.system.net.netd@1.1.vendor \
     CarrierConfigOverlay \
     librmnetctl \
@@ -354,6 +381,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
+# Secure element
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.1 \
+    android.hardware.secure_element@1.2 \
+    android.hardware.secure_element@1.0.vendor \
+    android.hardware.secure_element@1.1.vendor \
+    android.hardware.secure_element@1.2.vendor
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
@@ -393,6 +429,8 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
+
+PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Vibrator
 PRODUCT_PACKAGES += \
