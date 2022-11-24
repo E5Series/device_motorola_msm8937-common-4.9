@@ -124,6 +124,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.perf_hint_window=50 \
     vendor.gralloc.enable_fb_ubwc=1 \
     debug.egl.force_msaa=1
+    ro.config.avoid_gfx_accel=true \
+    ro.vendor.qti.am.reschedule_service=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
