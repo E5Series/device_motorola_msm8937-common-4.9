@@ -152,6 +152,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.vendor.qti.sys.fw.bg_apps_limit=60
 
+# Smoothens UI
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.service.lgospd.enable=0 \
+    persist.service.pcsync.enable=0
+
 # Play store
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.am=android-motorola \
